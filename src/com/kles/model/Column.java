@@ -5,6 +5,7 @@
  */
 package com.kles.model;
 
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -18,9 +19,13 @@ public class Column {
     private String name;
     private int id;
     private boolean hidden;
-    private final ResourceBundle res = ResourceBundle.getBundle("resources/language", Locale.ENGLISH);
+    private final ResourceBundle res = ResourceBundle.getBundle("resources/m3upgrader", Locale.ENGLISH);
 
     public Column() {
+    }
+
+    public Column(ArrayList a, String idLng) {
+        this(a.size()+1, idLng);
     }
 
     public Column(int id, String idLng) {
