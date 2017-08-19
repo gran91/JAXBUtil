@@ -51,6 +51,12 @@ public class JAXBUtil {
 
     /**
      * Unmarshal XML to Wrapper and return List value.
+     * @param <T>
+     * @param unmarshaller
+     * @param clazz
+     * @param xmlLocation
+     * @return 
+     * @throws javax.xml.bind.JAXBException
      */
     public static <T> List<T> unmarshalList(Unmarshaller unmarshaller,
             Class<T> clazz, String xmlLocation) throws JAXBException {
@@ -63,8 +69,7 @@ public class JAXBUtil {
      * Wrap List in Wrapper, then leverage JAXBElement to supply root element
      * information.
      */
-    public static void marshalList(Marshaller marshaller, List<?> list, String name)
-            throws JAXBException {
+    public static void marshalList(Marshaller marshaller, List<?> list, String name) throws JAXBException {
         QName qName = new QName(name);
         Wrapper wrapper = new Wrapper(list);
         JAXBElement<Wrapper> jaxbElement = new JAXBElement<Wrapper>(qName,
